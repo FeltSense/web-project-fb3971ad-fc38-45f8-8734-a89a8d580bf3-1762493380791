@@ -1,0 +1,113 @@
+{
+  "componentsToGenerate": [
+    "Navigation",
+    "Hero",
+    "PropertyCarousel",
+    "SearchFilters",
+    "PropertyGrid",
+    "PropertyCard",
+    "FeaturedListings",
+    "AgentProfiles",
+    "Testimonials",
+    "NeighborhoodGuides",
+    "MortgageCalculator",
+    "ContactForm",
+    "PricingPackages",
+    "InteractiveMap",
+    "Footer",
+    "ImageLightbox",
+    "ServicesOverview",
+    "ProcessTimeline",
+    "TrustIndicators",
+    "NewsletterSignup"
+  ],
+  "estimatedChallenges": [
+    {
+      "component": "PropertyCarousel",
+      "challenge": "Auto-play functionality with smooth transitions and manual controls",
+      "mitigation": "Use useEffect for auto-play timer, useState for current slide, proper cleanup on unmount"
+    },
+    {
+      "component": "SearchFilters",
+      "challenge": "Managing multiple filter states and applying them to property grid",
+      "mitigation": "Use useState for each filter type, create filter logic function, pass filtered results to PropertyGrid"
+    },
+    {
+      "component": "PropertyCard",
+      "challenge": "Responsive image handling and consistent card heights",
+      "mitigation": "Use Next.js Image component with proper aspect ratios, CSS Grid for consistent layouts"
+    },
+    {
+      "component": "ImageLightbox",
+      "challenge": "Modal overlay with image navigation and body scroll lock",
+      "mitigation": "Use portal for modal, useState for current image index, useEffect to lock body scroll"
+    },
+    {
+      "component": "MortgageCalculator",
+      "challenge": "Real-time calculation updates and input validation",
+      "mitigation": "Use controlled inputs with onChange handlers, calculation function with proper formatting"
+    },
+    {
+      "component": "InteractiveMap",
+      "challenge": "Embedding map with custom pins and click interactions",
+      "mitigation": "Use iframe for Google Maps embed with custom markers, or static map image with overlay pins"
+    },
+    {
+      "component": "ContactForm",
+      "challenge": "Form validation, conditional fields based on inquiry type",
+      "mitigation": "Use controlled form inputs, validation on submit, conditional rendering for property-specific fields"
+    },
+    {
+      "component": "Navigation",
+      "challenge": "Mobile hamburger menu with smooth transitions, active page highlighting",
+      "mitigation": "Use useState for menu open/close, CSS transitions, conditional classes for active links"
+    },
+    {
+      "component": "PricingPackages",
+      "challenge": "Comparison table that's readable on mobile",
+      "mitigation": "Use responsive table with horizontal scroll on mobile, or card layout for small screens"
+    },
+    {
+      "component": "AgentProfiles",
+      "challenge": "Grid layout with consistent image sizes and contact info",
+      "mitigation": "Use CSS Grid with fixed aspect ratio images, consistent card structure"
+    }
+  ],
+  "fixerContext": {
+    "expectedStructure": "Simple Next.js app. Components in components/ folder at root. app/page.tsx imports from ../components/",
+    "importPaths": "Use '../components/ComponentName' from app/page.tsx",
+    "commonIssues": [
+      "Missing 'use client' directive for interactive components (carousel, filters, calculator, forms, lightbox)",
+      "Import path mismatches - ensure all imports use '../components/' from app/",
+      "Image optimization - use Next.js Image component with proper width/height",
+      "Key props missing in mapped property cards and carousel slides",
+      "Form submission handlers need preventDefault",
+      "useState and useEffect hooks require 'use client'",
+      "Map component may need 'use client' for interactivity",
+      "Ensure all page files (home, services, portfolio, contact, pricing, location) are in app/ folder",
+      "Navigation links should use Next.js Link component with proper hrefs",
+      "Consistent styling across all pages - shared color variables and typography"
+    ],
+    "criticalFeatures": [
+      "All 6 pages must be generated with consistent branding",
+      "Navigation must link between all pages correctly",
+      "Property data should be realistic luxury listings ($2M-$20M range)",
+      "Agent profiles should feel authentic with specialties",
+      "Testimonials should reference specific properties and experiences",
+      "Pricing packages should have clear differentiation",
+      "Contact form must include property-specific inquiry fields",
+      "All interactive elements need proper state management",
+      "Mobile responsiveness is critical for all components",
+      "Smooth animations should enhance, not hinder, user experience"
+    ],
+    "designConsistency": [
+      "Use navy (#1a2332) and gold (#d4af37) consistently across all pages",
+      "Maintain premium typography hierarchy on every page",
+      "Property images should be high-quality and consistent in aspect ratio",
+      "CTAs should use gold background with navy text for visibility",
+      "White space and padding should be generous for luxury feel",
+      "All pages should have similar section spacing and rhythm",
+      "Footer and header should be identical across all pages"
+    ]
+  }
+}
